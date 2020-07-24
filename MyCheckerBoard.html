@@ -1,0 +1,290 @@
+<html>
+
+<! README
+
+  Just some creativity and coding practice.
+  A derivative based on Evans KPL Javascript course 
+  weeks two and three example.
+
+
+  Get a USB hub. plug in two mice and 
+  two people can play on the one screen
+  alternating turns. 
+
+  HOW TO PLAY
+
+  Click a button to pick side. Default is "X"
+
+  Click on a blank space to place.
+
+  SETUP GAME:
+
+  Set up board 16 top "X"s and 16 bottom "O"s".
+
+  PLAY:
+
+  Move by clicking your to remove
+  Click new location to place.
+
+  To take: Click your piece to remove, then
+  target piece to replace.
+
+  PLAY AGAIN:
+
+  Reset to play again.
+
+  Does not take into account "crowned pieces".
+  That's next.
+
+>
+
+<head>
+
+	<title> CHECKER BOARD  	</title>
+
+	<style>
+    body {
+      background-color: blue;
+      color:black;
+      
+    }
+    h2 {
+      text-align: center;
+      color:white;
+      font-size: 50pt;
+
+
+    }
+
+
+		.row div{
+			border: 1px solid black;
+      color: black;
+			height: 30px;
+			width: 50px;
+			float: left;
+			background-color: lightblue;
+			border-radius: 10%;
+			text-align: center;
+			padding-top: 10px;
+			font-size: 15pt;
+		}
+
+		.row {
+			clear: both;
+
+		}
+		button{
+			background-color: orange;
+			width:132px;
+      height: 30px;
+			border-radius: 3px;
+
+		} 
+
+    #block {
+    margin:auto;
+    width: 40%;
+
+  }
+
+		
+	</style>
+
+</head>
+
+<!xxxxxxxxpg2020xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx hb >
+
+<body>
+
+<h2>                          CHECKERS <h2>
+
+<button onclick="setPlayerX()">Set to Player X</button>  
+
+<button onclick="setPlayerO()">Set to Player O</button>
+
+<button onclick="reset()">RESET</button>
+<br>
+<hr>
+<br>
+
+<div id = "block">
+
+<div>
+
+<! row 8>	
+
+<! note: div ids not used here, are for another project I'm working on>
+
+   <div class = "row">
+   		
+   		<div id = s1 onclick="choose(this)">X</div>
+   		<div id = s2 onclick="choose(this)">X</div>
+   		<div id = s3 onclick="choose(this)">X</div>
+   		<div id = s4 onclick="choose(this)">X</div>
+   		<div id = s5 onclick="choose(this)">X</div>
+   		<div id = s6 onclick="choose(this)">X</div>
+   		<div id = s7 onclick="choose(this)">X</div>
+   		<div id = s8 onclick="choose(this)">X</div>
+   </div>
+   
+<! row 7>	
+
+   <div class = "row">
+   		
+   		<div id = s1 onclick="choose(this)">X</div>
+   		<div id = s2 onclick="choose(this)">X</div>
+   		<div id = s3 onclick="choose(this)">X</div>
+   		<div id = s4 onclick="choose(this)">X</div>
+   		<div id = s5 onclick="choose(this)">X</div>
+   		<div id = s6 onclick="choose(this)">X</div>
+   		<div id = s7 onclick="choose(this)">X</div>
+   		<div id = s8 onclick="choose(this)">X</div>
+   </div>
+  
+
+<! row 6>
+   <div class = "row">  
+   		
+   		<div id = s1 onclick="choose(this)"></div>
+   		<div id = s2 onclick="choose(this)"></div>
+   		<div id = s3 onclick="choose(this)"></div>
+   		<div id = s4 onclick="choose(this)"></div>
+   		<div id = s5 onclick="choose(this)"></div>
+   		<div id = s6 onclick="choose(this)"></div>
+   		<div id = s7 onclick="choose(this)"></div>
+   		<div id = s8 onclick="choose(this)"></div>
+   </div>
+
+ <! row 5>
+   <div class = "row"> 
+   		<div id = s1 onclick="choose(this)"></div>
+   		<div id = s2 onclick="choose(this)"></div>
+   		<div id = s3 onclick="choose(this)"></div>
+   		<div id = s4 onclick="choose(this)"></div>
+   		<div id = s5 onclick="choose(this)"></div>
+   		<div id = s6 onclick="choose(this)"></div>
+   		<div id = s7 onclick="choose(this)"></div>
+   		<div id = s8 onclick="choose(this)"></div>
+   </div>
+
+
+<! row 4>	
+
+   <div class = "row">
+   		
+   		<div id = s1 onclick="choose(this)"></div>
+   		<div id = s2 onclick="choose(this)"></div>
+   		<div id = s3 onclick="choose(this)"></div>
+   		<div id = s4 onclick="choose(this)"></div>
+   		<div id = s5 onclick="choose(this)"></div>
+   		<div id = s6 onclick="choose(this)"></div>
+   		<div id = s7 onclick="choose(this)"></div>
+   		<div id = s8 onclick="choose(this)"></div>
+   </div>
+   
+<! row 3>	
+
+   <div class = "row">
+   		
+   		<div id = s1 onclick="choose(this)"></div>
+   		<div id = s2 onclick="choose(this)"></div>
+   		<div id = s3 onclick="choose(this)"></div>
+   		<div id = s4 onclick="choose(this)"></div>
+   		<div id = s5 onclick="choose(this)"></div>
+   		<div id = s6 onclick="choose(this)"></div>
+   		<div id = s7 onclick="choose(this)"></div>
+   		<div id = s8 onclick="choose(this)"></div>
+   </div>
+  
+
+<! row 2>
+   <div class = "row">  
+   		
+   		<div id = s1 onclick="choose(this)">O</div>
+   		<div id = s2 onclick="choose(this)">O</div>
+   		<div id = s3 onclick="choose(this)">O</div>
+   		<div id = s4 onclick="choose(this)">O</div>
+   		<div id = s5 onclick="choose(this)">O</div>
+   		<div id = s6 onclick="choose(this)">O</div>
+   		<div id = s7 onclick="choose(this)">O</div>
+   		<div id = s8 onclick="choose(this)">O</div>
+   </div>
+
+ <! row 1>
+   <div class = "row"> 
+   		<div id = s1 onclick="choose(this)">O</div>
+   		<div id = s2 onclick="choose(this)">O</div>
+   		<div id = s3 onclick="choose(this)">O</div>
+   		<div id = s4 onclick="choose(this)">O</div>
+   		<div id = s5 onclick="choose(this)">O</div>
+   		<div id = s6 onclick="choose(this)">O</div>
+   		<div id = s7 onclick="choose(this)">O</div>
+   		<div id = s8 onclick="choose(this)">O</div>
+   </div>
+
+</div></div>
+
+<br><br>
+
+<br>
+
+
+
+<script>
+
+   //To write comments in JavaScript use //
+
+   var currentPlayer = "X";
+   var opPlayer ="O"
+   
+
+   function setPlayerO(){
+      currentPlayer ="O";
+      opPlayer ="X"
+      return;
+   }
+   
+   function setPlayerX(){
+      currentPlayer ="X"
+      opPlayer ="O"
+      return;
+   }
+
+     
+   function choose(box){
+
+      if (box.innerHTML =="") {
+         box.innerHTML = currentPlayer;
+         return;
+      }
+
+      if (box.innerHTML == currentPlayer) {
+         box.innerHTML ="" ;
+         return;
+      }
+
+      if (box.innerHTML == opPlayer) {
+         box.innerHTML =currentPlayer ;
+         return;   
+         
+      }
+
+
+
+
+   }
+      
+
+
+   function reset(){
+      location.reload();
+      }
+  
+
+</script>
+
+</body>
+
+
+</html>
